@@ -304,7 +304,7 @@
                             Meet Marigold Merced, your intuitive guide. Discover clarity, alignment, and mystical insight through minimalist spreads and profound universal wisdom.
                         </p>
                         
-                        <a href="#contact" class="btn-primary mb-12" data-copy-key="hero_cta">
+                        <a href="#reach-out" class="btn-primary mb-12" data-copy-key="hero_cta">
                             Connect with Marigold
                         </a>
 
@@ -506,33 +506,84 @@
                             </ul>
                         </div>
                         
-                        <!-- Right: Cold Reach Out Message Form -->
-                        <div class="w-full lg:w-1/2 bg-bubbleTeal/65 backdrop-blur-md p-8 rounded-[2rem] border border-creamLight/10 text-creamLight fade-in" style="transition-delay: 200ms;">
-                            <h3 class="font-serif text-3xl mb-2 text-gold">Send a Message</h3>
-                            <p class="text-xs text-creamLight/60 mb-6">Have a question or want to connect? Send Marigold a message directly.</p>
-                            
-                            <form id="cold-reachout-form" class="space-y-4">
+                        <!-- Right: Choice Cards -->
+                        <div class="w-full lg:w-1/2 flex flex-col sm:flex-row gap-6 fade-in" style="transition-delay: 200ms;">
+                            <!-- Choice 1: Live Sessions -->
+                            <div class="w-full sm:w-1/2 bg-bubbleTeal/65 backdrop-blur-md p-6 rounded-[2rem] border border-creamLight/10 text-creamLight flex flex-col justify-between hover:border-marigold transition-all duration-300 group">
                                 <div>
-                                    <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-1.5 font-semibold">Your Name</label>
-                                    <input type="text" id="reach-name" required class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="Sarah Connor">
+                                    <div class="w-10 h-10 rounded-full bg-amethyst/5 flex items-center justify-center mb-4 group-hover:bg-marigold/10 transition-colors">
+                                        <i class="fa-solid fa-calendar-days text-marigold"></i>
+                                    </div>
+                                    <h4 class="font-serif text-2xl text-amethyst mb-2" data-copy-key="live_card_title">Live Session</h4>
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-amethyst/60 mb-3" data-copy-key="live_card_subtitle">Calendly Scheduler</p>
+                                    <p class="text-xs font-light leading-relaxed text-amethyst/80" data-copy-key="live_card_description">
+                                        Meet 1-on-1 with Marigold in a live Zoom meeting. Explore your cards interactively and ask questions in real-time.
+                                    </p>
                                 </div>
-                                <div>
-                                    <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-1.5 font-semibold">Your Email</label>
-                                    <input type="email" id="reach-email" required class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="sarah.c@sky.net">
+                                <div class="mt-6 pt-4 border-t border-amethyst/5">
+                                    <p class="text-xs text-amethyst/50 mb-4">Packages start at <strong class="text-marigold">$35</strong></p>
+                                    <a href="#/booking" class="w-full text-center block bg-amethyst hover:bg-amethyst/90 text-white text-xs uppercase tracking-wider font-semibold py-3 rounded-full transition-all" data-copy-key="live_card_button">Book Live Call</a>
                                 </div>
-                                <div>
-                                    <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-1.5 font-semibold">Message</label>
-                                    <textarea id="reach-message" required rows="4" class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="How can Marigold help you be seen today?"></textarea>
-                                </div>
-                                <button type="submit" class="w-full bg-gold hover:bg-gold/90 text-deepTeal font-bold py-3.5 rounded-xl transition duration-300 flex items-center justify-center gap-2 text-sm">
-                                    Send Message <i class="fa-solid fa-paper-plane"></i>
-                                </button>
-                            </form>
-                            <div id="reachout-success" class="hidden text-center py-8 space-y-3">
-                                <i class="fa-solid fa-circle-check text-gold text-4xl animate-bounce"></i>
-                                <h4 class="font-serif text-2xl text-gold">Message Sent!</h4>
-                                <p class="text-xs text-creamLight/80">Thank you for reaching out. Marigold will get back to you shortly.</p>
                             </div>
+
+                            <!-- Choice 2: Custom Recorded Reading -->
+                            <div class="w-full sm:w-1/2 bg-bubbleTeal/65 backdrop-blur-md p-6 rounded-[2rem] border border-creamLight/10 text-creamLight flex flex-col justify-between hover:border-gold transition-all duration-300 group">
+                                <div>
+                                    <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mb-4 group-hover:bg-gold/30 transition-colors">
+                                        <i class="fa-solid fa-video text-gold"></i>
+                                    </div>
+                                    <h4 class="font-serif text-2xl text-gold mb-2" data-copy-key="recorded_card_title">Recorded Video</h4>
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-amethyst/60 mb-3" data-copy-key="recorded_card_subtitle">Pre-Recorded Readings</p>
+                                    <p class="text-xs font-light leading-relaxed text-amethyst/80" data-copy-key="recorded_card_description">
+                                        Choose from our curated menu of pre-recorded Tarot spreads and receive a private high-definition video reading sent to your email.
+                                    </p>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-amethyst/5">
+                                    <p class="text-xs text-amethyst/50 mb-4">Packages start at <strong class="text-gold">$25</strong></p>
+                                    <a href="#/gig" class="w-full text-center block bg-gold hover:bg-gold/80 text-deepTeal text-xs uppercase tracking-wider font-semibold py-3 rounded-full transition-all" data-copy-key="recorded_card_button">Explore Spreads</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reach Out / Message Section -->
+            <section id="reach-out" class="py-24 px-6 bg-deepTeal/40 border-t border-creamLight/5">
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-bubbleTeal/65 backdrop-blur-md p-8 md:p-12 rounded-[2rem] border border-creamLight/10 text-creamLight fade-in">
+                        <div class="text-center mb-8">
+                            <h2 class="font-serif text-4xl md:text-5xl mb-4 text-gold">Connect with Marigold</h2>
+                            <p class="text-xs text-creamLight/60 max-w-md mx-auto uppercase tracking-widest font-semibold mb-2">Send a Message</p>
+                            <div class="w-16 h-px bg-marigold mx-auto mb-4"></div>
+                            <p class="text-sm font-light opacity-95 max-w-lg mx-auto leading-relaxed">
+                                Have a question, want to discuss a custom offering, or just want to introduce yourself? Fill out the form below to connect directly with Marigold.
+                            </p>
+                        </div>
+                        
+                        <form id="cold-reachout-form" class="space-y-6 max-w-xl mx-auto">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-2 font-semibold">Your Name</label>
+                                    <input type="text" id="reach-name" required class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="Sarah Connor">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-2 font-semibold">Your Email</label>
+                                    <input type="email" id="reach-email" required class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="sarah.c@sky.net">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-2 font-semibold">Message</label>
+                                <textarea id="reach-message" required rows="5" class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="How can Marigold help you be seen today?"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gold hover:bg-gold/90 text-deepTeal font-bold py-4 rounded-xl transition duration-300 flex items-center justify-center gap-2 text-sm">
+                                Send Message <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <div id="reachout-success" class="hidden text-center py-8 space-y-4">
+                            <i class="fa-solid fa-circle-check text-gold text-5xl animate-bounce"></i>
+                            <h4 class="font-serif text-3xl text-gold">Message Sent!</h4>
+                            <p class="text-sm text-creamLight/80">Thank you for reaching out. Marigold will get back to you shortly.</p>
                         </div>
                     </div>
                 </div>
