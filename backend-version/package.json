@@ -1,0 +1,14 @@
+{
+  "name": "marigold-site-booking",
+  "version": "1.0.0",
+  "description": "Calendly and Fiverr style booking service with Express backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "private": true
+}

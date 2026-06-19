@@ -1,0 +1,180 @@
+{
+  "credentials": {
+    "username": "admin",
+    "password": "admin"
+  },
+  "availability": {
+    "weekly": {
+      "0": [],
+      "1": [
+        { "start": "09:00", "end": "12:00" },
+        { "start": "13:00", "end": "17:00" }
+      ],
+      "2": [
+        { "start": "09:00", "end": "17:00" }
+      ],
+      "3": [],
+      "4": [
+        { "start": "13:00", "end": "19:00" }
+      ],
+      "5": [
+        { "start": "09:00", "end": "17:00" }
+      ],
+      "6": [
+        { "start": "10:00", "end": "15:00" }
+      ]
+    },
+    "blockouts": [
+      "2026-06-15",
+      "2026-07-04"
+    ]
+  },
+  "bookings": [
+    {
+      "id": "b-88a44b11-d0ee-49fb-94f7-87cfd67ff9b0",
+      "name": "Sarah Connor",
+      "email": "sarah.c@sky.net",
+      "type": "full",
+      "typeName": "The Full Spread ($85)",
+      "date": "2026-06-05",
+      "time": "14:00",
+      "duration": 60,
+      "zoomLink": "https://zoom.us/j/9876543210?pwd=MWd4TTVoMUhLd3M5ZnpVbmtWZz05",
+      "notes": "Seeking guidance on future paths and protecting family.",
+      "createdAt": "2026-06-01T10:15:30.000Z"
+    },
+    {
+      "id": "b-2fe9a421-4f11-46ab-bb1e-a4b008d55bfb",
+      "name": "Arthur Dent",
+      "email": "dent.arthur@hitchhiker.org",
+      "type": "quick",
+      "typeName": "The Quick Draw ($35)",
+      "date": "2026-06-06",
+      "time": "11:00",
+      "duration": 30,
+      "zoomLink": "https://zoom.us/j/1234567890?pwd=U2VjcmV0UGFzc2NvZGVGb3JBY2Nlc3M=",
+      "notes": "Quick draw about why my house is being demolished today.",
+      "createdAt": "2026-06-02T14:22:10.000Z"
+    }
+  ],
+  "readings": [
+    {
+      "id": "r-01589da4-ea9b-43d9-9be9-a1b7ef89a05b",
+      "name": "Bruce Wayne",
+      "email": "bruce@waynecorp.com",
+      "zodiac": "Scorpio",
+      "question": "Will my night-time activities yield positive change in my city, or should I reconsider my methods?",
+      "status": "pending",
+      "deliveryUrl": null,
+      "createdAt": "2026-06-03T16:30:00.000Z",
+      "deliveredAt": null
+    },
+    {
+      "id": "r-9cf3d221-df10-449e-b9cd-bb225fb00e2b",
+      "name": "Luna Lovegood",
+      "email": "luna@quibbler.co.uk",
+      "zodiac": "Aquarius",
+      "question": "Where can I find Crumple-Horned Snorkacks in the coming months?",
+      "status": "delivered",
+      "deliveryUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "createdAt": "2026-06-01T09:12:00.000Z",
+      "deliveredAt": "2026-06-02T11:00:00.000Z"
+    }
+  ],
+  "services": [
+    {
+      "id": "quick",
+      "name": "The Quick Draw",
+      "duration": 30,
+      "price": 35,
+      "description": "A swift three-card spread to provide immediate clarity on a specific pressing question or choice.",
+      "icon": "fa-sparkles"
+    },
+    {
+      "id": "full",
+      "name": "The Full Spread",
+      "duration": 60,
+      "price": 85,
+      "description": "An in-depth ten-card Celtic Cross reading exploring past influences, current energies, and future potentials.",
+      "icon": "fa-moon"
+    },
+    {
+      "id": "forecast",
+      "name": "Yearly Forecast",
+      "duration": 60,
+      "price": 120,
+      "description": "A comprehensive twelve-month overview drawing one card per month to guide your journey ahead.",
+      "icon": "fa-sun-plant-wilt"
+    },
+    {
+      "id": "celestial",
+      "name": "Celestial Analysis",
+      "duration": 60,
+      "price": 150,
+      "description": "A 60-minute progressed chart consultation aligning your spiritual timeline and planetary energies.",
+      "icon": "fa-star"
+    }
+  ],
+  "shop": [
+    {
+      "id": "deck",
+      "name": "The Marigold Deck",
+      "price": 55,
+      "description": "Gold-foiled edge, 78 cards",
+      "image": "./assets/tarot_deck.webp"
+    },
+    {
+      "id": "journals",
+      "name": "Linen Journals",
+      "price": 28,
+      "description": "Hand-bound, blank pages",
+      "image": "",
+      "fallback_icon": "fa-book"
+    },
+    {
+      "id": "aura",
+      "name": "Custom Aura Painting",
+      "price": 110,
+      "description": "Intuitive reading on canvas",
+      "image": "./assets/aura_painting.webp"
+    },
+    {
+      "id": "oil",
+      "name": "Lavender Anointing Oil",
+      "price": 22,
+      "description": "Organic, small batch",
+      "image": "./assets/lavender_oil.webp"
+    }
+  ],
+  "copy": {
+    "nav_brand": "Marigold's Medicine",
+    "hero_heading": "Medicine as it was <br>Meant to Be",
+    "hero_subheading": "Meet Marigold Merced, your intuitive guide. Discover clarity, alignment, and mystical insight through minimalist spreads and profound universal wisdom.",
+    "hero_cta": "Connect with Marigold",
+    "free_title": "Get a Free Instant Tarot Reading",
+    "free_description": "Enter your email to instantly draw a Major Arcana card and receive a personalized guidance message.",
+    "free_button": "Draw My Card <i class=\"fa-solid fa-wand-magic-sparkles ml-1\"></i>",
+    "process_title": "My Tarot Process",
+    "process_p1": "My approach to tarot is grounded in clarity, intuition, and minimalist elegance. I view the cards not as tools for rigid fortune-telling, but as mirrors reflecting your inner truth and the energies surrounding you.",
+    "process_p2": "Each reading begins with a grounding meditation, aligning our intentions. We pull the cards together, unraveling the narrative they present. Whether you are seeking immediate guidance or deep spiritual mapping, the process is always a collaborative, illuminating journey.",
+    "about_title": "Marigold Merced",
+    "about_subtitle": "Founder & Intuitive Guide",
+    "about_bio": "Bio currently under construction...",
+    "contact_title": "Request a Reading",
+    "contact_process_title": "The Process",
+    "contact_process_text": "Every reading is a tailored experience designed to illuminate your unique path. We begin by centering our energies and clarifying your intention. Using intuitive spreads, we will unravel the narrative of the cards, connecting deeply with the elements and your personal astrology to uncover actionable, profound insights.",
+    "contact_benefits_title": "Included Benefits",
+    "contact_benefit_1": "A personalized, deep-dive tarot spread",
+    "contact_benefit_2": "Integration of your celestial chart energies",
+    "contact_benefit_3": "A radically inclusive, empathetic space for grounding",
+    "contact_benefit_4": "Written summary and high-quality photo of your spread",
+    "live_card_title": "Live Session",
+    "live_card_subtitle": "Calendly Scheduler",
+    "live_card_description": "Meet 1-on-1 with Marigold in a live Zoom meeting. Explore your cards interactively and ask questions in real-time.",
+    "live_card_button": "Book Live Call",
+    "recorded_card_title": "Recorded Video",
+    "recorded_card_subtitle": "Pre-Recorded Readings",
+    "recorded_card_description": "Choose from our curated menu of pre-recorded Tarot spreads and receive a private high-definition video reading sent to your email.",
+    "recorded_card_button": "Explore Spreads"
+  }
+}
