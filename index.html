@@ -2335,6 +2335,116 @@
             window.scrollTo({ top: 0, behavior: 'instant' });
         }
 
+        // --- DONATION MODAL ACTIONS ---
+        let selectedDonateVal = 15;
+        window.selectDonateAmount = function(amount) {
+            selectedDonateVal = amount;
+            document.querySelectorAll('.donate-btn-preset').forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-deepTeal');
+                btn.classList.add('border-creamLight/20', 'text-creamLight');
+            });
+            const customContainer = document.getElementById('custom-donate-container');
+            
+            if (amount === 'custom') {
+                if (customContainer) customContainer.classList.remove('hidden');
+            } else {
+                if (customContainer) customContainer.classList.add('hidden');
+                // Find matching preset button and highlight
+                document.querySelectorAll('.donate-btn-preset').forEach(btn => {
+                    if (btn.textContent.trim() === `$${amount}`) {
+                        btn.classList.remove('border-creamLight/20', 'text-creamLight');
+                        btn.classList.add('bg-gold', 'text-deepTeal');
+                    }
+                });
+            }
+        };
+        
+        window.openDonationModal = function() {
+            const overlay = document.getElementById('donation-overlay');
+            if (overlay) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100');
+                window.selectDonateAmount(15); // default
+            }
+        };
+        
+        window.closeDonationModal = function() {
+            const overlay = document.getElementById('donation-overlay');
+            if (overlay) {
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                // Reset form
+                document.getElementById('donation-form').classList.remove('hidden');
+                document.getElementById('donation-success').classList.add('hidden');
+                document.getElementById('donation-form').reset();
+            }
+        };
+
+        function initDonation() {
+            const form = document.getElementById('donation-form');
+            if (!form) return;
+
+            form.onsubmit = (e) => {
+                e.preventDefault();
+                const email = document.getElementById('donate-email').value;
+                let finalAmount = selectedDonateVal;
+                if (selectedDonateVal === 'custom') {
+                    finalAmount = parseFloat(document.getElementById('custom-donate-amount').value) || 0;
+                }
+                
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Processing Offering...`;
+                
+                setTimeout(() => {
+                    form.classList.add('hidden');
+                    const successDiv = document.getElementById('donation-success');
+                    if (successDiv) {
+                        successDiv.classList.remove('hidden');
+                        successDiv.querySelector('p').innerHTML = `Your mock donation of <strong>$${finalAmount.toFixed(2)}</strong> from <strong>${email}</strong> has been simulated. Thank you for supporting the medicine!`;
+                    }
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `Complete Mock Offering <i class="fa-solid fa-gift"></i>`;
+                }, 1000);
+            };
+        }
+
+        // --- FREE TAROT CARD DRAW ENGINE ---
+        function initFreeReading() {
+            const form = document.getElementById('free-reading-form');
+            const output = document.getElementById('free-reading-output');
+            if (!form || !output) return;
+
+            form.onsubmit = (e) => {
+                e.preventDefault();
+                const emailInput = form.querySelector('input[type="email"]').value;
+                if (!emailInput) return;
+
+                // Pick a random card from TAROT_CARDS
+                const randomIndex = Math.floor(Math.random() * TAROT_CARDS.length);
+                const card = TAROT_CARDS[randomIndex];
+
+                // Update UI elements
+                document.getElementById('reveal-card-name').textContent = card.name;
+                document.getElementById('reveal-card-title').textContent = `Your Card: ${card.name}`;
+                document.getElementById('reveal-card-message').textContent = card.message;
+
+                // Update card icon
+                const iconEl = document.querySelector('#free-reading-output i.fa-solid');
+                if (iconEl && card.icon) {
+                    iconEl.className = `fa-solid ${card.icon} text-deepTeal text-3xl`;
+                }
+
+                // Hide the form, show the reveal card div
+                form.classList.add('hidden');
+                output.classList.remove('hidden');
+                setTimeout(() => {
+                    output.classList.remove('scale-95', 'opacity-0');
+                    output.classList.add('scale-100', 'opacity-100');
+                }, 50);
+            };
+        }
+
         window.addEventListener('hashchange', router);
         window.addEventListener('DOMContentLoaded', () => {
             initMockDb();
