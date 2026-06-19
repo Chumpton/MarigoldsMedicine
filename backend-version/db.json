@@ -42,63 +42,10 @@
         }
       ]
     },
-    "blockouts": [
-      "2026-06-15",
-      "2026-07-04"
-    ]
+    "blockouts": []
   },
-  "bookings": [
-    {
-      "id": "b-88a44b11-d0ee-49fb-94f7-87cfd67ff9b0",
-      "name": "Sarah Connor",
-      "email": "sarah.c@sky.net",
-      "type": "full",
-      "typeName": "The Full Spread ($85)",
-      "date": "2026-06-05",
-      "time": "14:00",
-      "duration": 60,
-      "zoomLink": "https://zoom.us/j/9876543210?pwd=MWd4TTVoMUhLd3M5ZnpVbmtWZz05",
-      "notes": "Seeking guidance on future paths and protecting family.",
-      "createdAt": "2026-06-01T10:15:30.000Z"
-    },
-    {
-      "id": "b-2fe9a421-4f11-46ab-bb1e-a4b008d55bfb",
-      "name": "Arthur Dent",
-      "email": "dent.arthur@hitchhiker.org",
-      "type": "quick",
-      "typeName": "The Quick Draw ($35)",
-      "date": "2026-06-06",
-      "time": "11:00",
-      "duration": 30,
-      "zoomLink": "https://zoom.us/j/1234567890?pwd=U2VjcmV0UGFzc2NvZGVGb3JBY2Nlc3M=",
-      "notes": "Quick draw about why my house is being demolished today.",
-      "createdAt": "2026-06-02T14:22:10.000Z"
-    }
-  ],
-  "readings": [
-    {
-      "id": "r-01589da4-ea9b-43d9-9be9-a1b7ef89a05b",
-      "name": "Bruce Wayne",
-      "email": "bruce@waynecorp.com",
-      "zodiac": "Scorpio",
-      "question": "Will my night-time activities yield positive change in my city, or should I reconsider my methods?",
-      "status": "pending",
-      "deliveryUrl": null,
-      "createdAt": "2026-06-03T16:30:00.000Z",
-      "deliveredAt": null
-    },
-    {
-      "id": "r-9cf3d221-df10-449e-b9cd-bb225fb00e2b",
-      "name": "Luna Lovegood",
-      "email": "luna@quibbler.co.uk",
-      "zodiac": "Aquarius",
-      "question": "Where can I find Crumple-Horned Snorkacks in the coming months?",
-      "status": "delivered",
-      "deliveryUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "createdAt": "2026-06-01T09:12:00.000Z",
-      "deliveredAt": "2026-06-02T11:00:00.000Z"
-    }
-  ],
+  "bookings": [],
+  "readings": [],
   "services": [
     {
       "id": "quick",

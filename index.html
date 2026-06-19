@@ -1742,10 +1742,7 @@
                     { "start": "10:00", "end": "15:00" }
                 ]
             },
-            blockouts: [
-                "2026-06-15",
-                "2026-07-04"
-            ]
+            blockouts: []
         };
 
         const TAROT_CARDS = [
@@ -1800,59 +1797,9 @@
             }
         ];
 
-        const DEFAULT_BOOKINGS = [
-            {
-                id: "b-88a44b11-d0ee-49fb-94f7-87cfd67ff9b0",
-                name: "Sarah Connor",
-                email: "sarah.c@sky.net",
-                type: "full",
-                typeName: "The Full Spread ($85)",
-                date: "2026-06-05",
-                time: "14:00",
-                duration: 60,
-                zoomLink: "https://zoom.us/j/9876543210?pwd=MWd4TTVoMUhLd3M5ZnpVbmtWZz05",
-                notes: "Seeking guidance on future paths and protecting family.",
-                createdAt: "2026-06-01T10:15:30.000Z"
-            },
-            {
-                id: "b-2fe9a421-4f11-46ab-bb1e-a4b008d55bfb",
-                name: "Arthur Dent",
-                email: "dent.arthur@hitchhiker.org",
-                type: "quick",
-                typeName: "The Quick Draw ($35)",
-                date: "2026-06-06",
-                time: "11:00",
-                duration: 30,
-                zoomLink: "https://zoom.us/j/1234567890?pwd=U2VjcmV0UGFzc2NvZGVGb3JBY2Nlc3M=",
-                notes: "Quick draw about why my house is being demolished today.",
-                createdAt: "2026-06-02T14:22:10.000Z"
-            }
-        ];
+        const DEFAULT_BOOKINGS = [];
 
-        const DEFAULT_READINGS = [
-            {
-                id: "r-01589da4-ea9b-43d9-9be9-a1b7ef89a05b",
-                name: "Bruce Wayne",
-                email: "bruce@waynecorp.com",
-                zodiac: "Scorpio",
-                question: "Will my night-time activities yield positive change in my city, or should I reconsider my methods?",
-                status: "pending",
-                deliveryUrl: null,
-                createdAt: "2026-06-03T16:30:00.000Z",
-                deliveredAt: null
-            },
-            {
-                id: "r-9cf3d221-df10-449e-b9cd-bb225fb00e2b",
-                name: "Luna Lovegood",
-                email: "luna@quibbler.co.uk",
-                zodiac: "Aquarius",
-                question: "Where can I find Crumple-Horned Snorkacks in the coming months?",
-                status: "delivered",
-                deliveryUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                createdAt: "2026-06-01T09:12:00.000Z",
-                deliveredAt: "2026-06-02T11:00:00.000Z"
-            }
-        ];
+        const DEFAULT_READINGS = [];
 
         function initMockDb() {
             const existing = localStorage.getItem('marigold_services');
@@ -2866,7 +2813,7 @@
 
             // Booking Form submit binding
             const bookingForm = document.getElementById('booking-form');
-            bookingForm.onsubmit = (e) => {
+            bookingForm.onsubmit = async (e) => {
                 e.preventDefault();
                 
                 const name = document.getElementById('user-name').value;
@@ -2884,37 +2831,61 @@
                     
                     try {
                         const preRecordBackup = document.getElementById('user-pre-record-backup').checked;
-                        const meetingId = Math.floor(1000000000 + Math.random() * 9000000000);
-                        const zoomLink = `https://zoom.us/j/${meetingId}?pwd=mock-pages-${Math.random().toString(36).substring(3,9)}`;
+                        let bookingData;
                         
-                        const newBk = {
-                            id: `b-mock-${Math.random().toString(36).substring(2,9)}`,
-                            name,
-                            email,
-                            type,
-                            typeName: `${sDetails.name} ($${sDetails.price})`,
-                            date: selectedDateStr,
-                            time: selectedTime,
-                            duration: sDetails.duration,
-                            zoomLink,
-                            notes: notes || '',
-                            preRecordBackup,
-                            createdAt: new Date().toISOString()
-                        };
-
-                        mockApi.createBooking(newBk);
+                        if (window.location.protocol !== 'file:') {
+                            const res = await fetch('/api/bookings', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    name,
+                                    email,
+                                    type,
+                                    date: selectedDateStr,
+                                    time: selectedTime,
+                                    notes: notes || ''
+                                })
+                            });
+                            if (!res.ok) {
+                                const errData = await res.json().catch(() => ({ error: 'Server error occurred while booking.' }));
+                                throw new Error(errData.error || 'Server error occurred while booking.');
+                            }
+                            bookingData = await res.json();
+                            // Update local copy of bookings
+                            const localBks = JSON.parse(localStorage.getItem('marigold_bookings') || '[]');
+                            localBks.push(bookingData);
+                            localStorage.setItem('marigold_bookings', JSON.stringify(localBks));
+                        } else {
+                            const meetingId = Math.floor(1000000000 + Math.random() * 9000000000);
+                            const zoomLink = `https://zoom.us/j/${meetingId}?pwd=mock-pages-${Math.random().toString(36).substring(3,9)}`;
+                            bookingData = {
+                                id: `b-mock-${Math.random().toString(36).substring(2,9)}`,
+                                name,
+                                email,
+                                type,
+                                typeName: `${sDetails.name} ($${sDetails.price})`,
+                                date: selectedDateStr,
+                                time: selectedTime,
+                                duration: sDetails.duration,
+                                zoomLink,
+                                notes: notes || '',
+                                preRecordBackup,
+                                createdAt: new Date().toISOString()
+                            };
+                            mockApi.createBooking(bookingData);
+                        }
                         
                         // Show success
                         stepDetails.classList.add('hidden');
                         stepSuccess.classList.remove('hidden');
-                        document.getElementById('success-type').textContent = newBk.typeName;
+                        document.getElementById('success-type').textContent = bookingData.typeName;
                         
                         const readableDate = new Date(selectedDateStr + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                        document.getElementById('success-datetime').textContent = `${readableDate} at ${format12HourBookingTime(selectedTime)} (${sDetails.duration}m)`;
+                        document.getElementById('success-datetime').textContent = `${readableDate} at ${format12HourBookingTime(selectedTime)} (${bookingData.duration}m)`;
                         
                         const zoomLinkEl = document.getElementById('success-zoom');
-                        zoomLinkEl.href = zoomLink;
-                        zoomLinkEl.textContent = zoomLink;
+                        zoomLinkEl.href = bookingData.zoomLink;
+                        zoomLinkEl.textContent = bookingData.zoomLink;
                         
                         // Toggle elements for Live success
                         document.getElementById('success-icon').className = "fa-solid fa-calendar-check text-marigold text-2xl";
@@ -2934,26 +2905,51 @@
                     const sDetails = recordedServices.find(s => s.id === type) || { name: 'Single-Question Deep-Dive', duration: 10, price: 25 };
                     
                     try {
-                        const newReading = {
-                            id: `r-mock-${Math.random().toString(36).substring(2,9)}`,
-                            name,
-                            email,
-                            zodiac,
-                            question: notes,
-                            readingType: sDetails.name,
-                            price: sDetails.price,
-                            status: 'pending',
-                            deliveryUrl: null,
-                            createdAt: new Date().toISOString(),
-                            deliveredAt: null
-                        };
-
-                        mockApi.createReading(newReading);
+                        let readingData;
+                        
+                        if (window.location.protocol !== 'file:') {
+                            const res = await fetch('/api/readings', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    name,
+                                    email,
+                                    zodiac,
+                                    question: notes,
+                                    readingType: sDetails.name,
+                                    price: sDetails.price
+                                })
+                            });
+                            if (!res.ok) {
+                                const errData = await res.json().catch(() => ({ error: 'Server error occurred while ordering reading.' }));
+                                throw new Error(errData.error || 'Server error occurred while ordering reading.');
+                            }
+                            readingData = await res.json();
+                            // Update local copy of readings
+                            const localRds = JSON.parse(localStorage.getItem('marigold_readings') || '[]');
+                            localRds.push(readingData);
+                            localStorage.setItem('marigold_readings', JSON.stringify(localRds));
+                        } else {
+                            readingData = {
+                                id: `r-mock-${Math.random().toString(36).substring(2,9)}`,
+                                name,
+                                email,
+                                zodiac,
+                                question: notes,
+                                readingType: sDetails.name,
+                                price: sDetails.price,
+                                status: 'pending',
+                                deliveryUrl: null,
+                                createdAt: new Date().toISOString(),
+                                deliveredAt: null
+                            };
+                            mockApi.createReading(readingData);
+                        }
                         
                         // Show success
                         stepDetails.classList.add('hidden');
                         stepSuccess.classList.remove('hidden');
-                        document.getElementById('success-type').textContent = `${sDetails.name} ($${sDetails.price})`;
+                        document.getElementById('success-type').textContent = `${readingData.readingType} ($${readingData.price})`;
                         
                         // Toggle elements for Pre-recorded success
                         document.getElementById('success-icon').className = "fa-solid fa-video text-gold text-2xl";
