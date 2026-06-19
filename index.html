@@ -298,7 +298,7 @@
 
                     <div class="w-full fade-in" style="transition-delay: 200ms;">
                         <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-6 text-amethyst" data-copy-key="hero_heading">
-                            Medicine as it was <br>Meant to Be
+                            A Place to Be Seen
                         </h1>
                         <p class="text-lg md:text-xl font-light mb-10 leading-relaxed max-w-2xl mx-auto opacity-90" data-copy-key="hero_subheading">
                             Meet Marigold Merced, your intuitive guide. Discover clarity, alignment, and mystical insight through minimalist spreads and profound universal wisdom.
@@ -425,15 +425,16 @@
                         </div>
                     </div>
 
-                    <!-- Reading Types -->
-                    <div id="services" class="text-center mb-16 fade-in pt-12">
-                        <h2 class="font-serif text-3xl md:text-4xl mb-4">Reading Types</h2>
-                        <div class="w-16 h-px bg-marigold mx-auto"></div>
-                    </div>
-                    
-                    <div id="dynamic-services-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                        <div class="py-12 col-span-3 text-center text-amethyst/50">
-                            <i class="fa-solid fa-spinner animate-spin mr-2 text-marigold text-lg"></i> Loading Tarot Packages...
+                    <!-- Changing Quotes Section -->
+                    <div id="services" class="text-center py-16 bg-deepTeal/40 border-t border-b border-creamLight/5 rounded-[2rem] my-12 px-6 fade-in">
+                        <div class="max-w-3xl mx-auto space-y-6">
+                            <div class="text-marigold text-4xl font-serif">“</div>
+                            <p id="changing-quote" class="font-serif text-2xl md:text-3xl text-creamLight leading-relaxed transition-all duration-1000 opacity-100">
+                                A place to be seen is a place where healing begins.
+                            </p>
+                            <div id="changing-quote-author" class="text-xs tracking-widest text-gold uppercase font-semibold transition-all duration-1000 opacity-100">
+                                — Marigold Merced
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -505,42 +506,32 @@
                             </ul>
                         </div>
                         
-                        <!-- Right: Choice Cards -->
-                        <div class="w-full lg:w-1/2 flex flex-col sm:flex-row gap-6 fade-in" style="transition-delay: 200ms;">
-                            <!-- Choice 1: Live Sessions -->
-                            <div class="w-full sm:w-1/2 bg-bubbleTeal/65 backdrop-blur-md p-6 rounded-[2rem] border border-creamLight/10 text-creamLight flex flex-col justify-between hover:border-marigold transition-all duration-300 group">
+                        <!-- Right: Cold Reach Out Message Form -->
+                        <div class="w-full lg:w-1/2 bg-bubbleTeal/65 backdrop-blur-md p-8 rounded-[2rem] border border-creamLight/10 text-creamLight fade-in" style="transition-delay: 200ms;">
+                            <h3 class="font-serif text-3xl mb-2 text-gold">Send a Message</h3>
+                            <p class="text-xs text-creamLight/60 mb-6">Have a question or want to connect? Send Marigold a message directly.</p>
+                            
+                            <form id="cold-reachout-form" class="space-y-4">
                                 <div>
-                                    <div class="w-10 h-10 rounded-full bg-amethyst/5 flex items-center justify-center mb-4 group-hover:bg-marigold/10 transition-colors">
-                                        <i class="fa-solid fa-calendar-days text-marigold"></i>
-                                    </div>
-                                    <h4 class="font-serif text-2xl text-amethyst mb-2" data-copy-key="live_card_title">Live Session</h4>
-                                    <p class="text-xs font-semibold uppercase tracking-wider text-amethyst/60 mb-3" data-copy-key="live_card_subtitle">Calendly Scheduler</p>
-                                    <p class="text-xs font-light leading-relaxed text-amethyst/80" data-copy-key="live_card_description">
-                                        Meet 1-on-1 with Marigold in a live Zoom meeting. Explore your cards interactively and ask questions in real-time.
-                                    </p>
+                                    <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-1.5 font-semibold">Your Name</label>
+                                    <input type="text" id="reach-name" required class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="Sarah Connor">
                                 </div>
-                                <div class="mt-6 pt-4 border-t border-amethyst/5">
-                                    <p class="text-xs text-amethyst/50 mb-4">Packages start at <strong class="text-marigold">$35</strong></p>
-                                    <a href="#/booking" class="w-full text-center block bg-amethyst hover:bg-amethyst/90 text-white text-xs uppercase tracking-wider font-semibold py-3 rounded-full transition-all" data-copy-key="live_card_button">Book Live Call</a>
-                                </div>
-                            </div>
-
-                            <!-- Choice 2: Custom Recorded Reading -->
-                            <div class="w-full sm:w-1/2 bg-bubbleTeal/65 backdrop-blur-md p-6 rounded-[2rem] border border-creamLight/10 text-creamLight flex flex-col justify-between hover:border-gold transition-all duration-300 group">
                                 <div>
-                                    <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center mb-4 group-hover:bg-gold/30 transition-colors">
-                                        <i class="fa-solid fa-video text-gold"></i>
-                                    </div>
-                                    <h4 class="font-serif text-2xl text-gold mb-2" data-copy-key="recorded_card_title">Recorded Video</h4>
-                                    <p class="text-xs font-semibold uppercase tracking-wider text-amethyst/60 mb-3" data-copy-key="recorded_card_subtitle">Pre-Recorded Readings</p>
-                                    <p class="text-xs font-light leading-relaxed text-amethyst/80" data-copy-key="recorded_card_description">
-                                        Choose from our curated menu of pre-recorded Tarot spreads and receive a private high-definition video reading sent to your email.
-                                    </p>
+                                    <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-1.5 font-semibold">Your Email</label>
+                                    <input type="email" id="reach-email" required class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="sarah.c@sky.net">
                                 </div>
-                                <div class="mt-6 pt-4 border-t border-amethyst/5">
-                                    <p class="text-xs text-amethyst/50 mb-4">Packages start at <strong class="text-gold">$25</strong></p>
-                                    <a href="#/gig" class="w-full text-center block bg-gold hover:bg-gold/80 text-deepTeal text-xs uppercase tracking-wider font-semibold py-3 rounded-full transition-all" data-copy-key="recorded_card_button">Explore Spreads</a>
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider text-creamLight/60 mb-1.5 font-semibold">Message</label>
+                                    <textarea id="reach-message" required rows="4" class="w-full bg-deepTeal border border-creamLight/20 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-gold text-creamLight" placeholder="How can Marigold help you be seen today?"></textarea>
                                 </div>
+                                <button type="submit" class="w-full bg-gold hover:bg-gold/90 text-deepTeal font-bold py-3.5 rounded-xl transition duration-300 flex items-center justify-center gap-2 text-sm">
+                                    Send Message <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </form>
+                            <div id="reachout-success" class="hidden text-center py-8 space-y-3">
+                                <i class="fa-solid fa-circle-check text-gold text-4xl animate-bounce"></i>
+                                <h4 class="font-serif text-2xl text-gold">Message Sent!</h4>
+                                <p class="text-xs text-creamLight/80">Thank you for reaching out. Marigold will get back to you shortly.</p>
                             </div>
                         </div>
                     </div>
@@ -575,7 +566,11 @@
                     </button>
                 </div>
                 
-                <div class="text-sm font-light text-gold/70" data-copy-key="footer_copyright">
+                <div class="text-[10px] text-creamLight/40 max-w-2xl text-center leading-relaxed font-light mt-4">
+                    Disclaimer: Readings and services offered are for self-discovery, spiritual exploration, and personal guidance. They are not intended as, and do not constitute, medical advice, diagnosis, treatment, psychological counseling, or legal/financial services.
+                </div>
+                
+                <div class="text-sm font-light text-gold/70 mt-2" data-copy-key="footer_copyright">
                     &copy; 2026 Marigold's Medicine. All rights reserved.
                 </div>
             </div>
@@ -1586,7 +1581,7 @@
         // -------------------------------------------------------------
         const DEFAULT_COPY = {
             "nav_brand": "Marigold's Medicine",
-            "hero_heading": "Medicine as it was <br>Meant to Be",
+            "hero_heading": "A Place to Be Seen",
             "hero_subheading": "Meet Marigold Merced, your intuitive guide. Discover clarity, alignment, and mystical insight through minimalist spreads and profound universal wisdom.",
             "hero_cta": "Connect with Marigold",
             "free_title": "Get a Free Instant Tarot Reading",
@@ -2445,6 +2440,62 @@
             };
         }
 
+        // --- CHANGING QUOTES CAROUSEL ---
+        const QUOTES = [
+            { text: "A place to be seen is a place where healing begins.", author: "Marigold Merced" },
+            { text: "The cards do not lock doors; they show you where the keys are hidden.", author: "Tarot Reflection" },
+            { text: "Your intuition is a quiet voice; we simply create the space to hear it.", author: "Marigold Merced" },
+            { text: "Medicine is not always a cure; sometimes it is simply the courage to look within.", author: "Marigold Merced" },
+            { text: "When we center our energy, we align our path with the universe.", author: "Universal Wisdom" }
+        ];
+        let currentQuoteIndex = 0;
+        function cycleQuotes() {
+            const textEl = document.getElementById('changing-quote');
+            const authorEl = document.getElementById('changing-quote-author');
+            if (!textEl || !authorEl) return;
+
+            textEl.classList.remove('opacity-100');
+            textEl.classList.add('opacity-0');
+            authorEl.classList.remove('opacity-100');
+            authorEl.classList.add('opacity-0');
+
+            setTimeout(() => {
+                currentQuoteIndex = (currentQuoteIndex + 1) % QUOTES.length;
+                const nextQuote = QUOTES[currentQuoteIndex];
+                textEl.textContent = nextQuote.text;
+                authorEl.textContent = `— ${nextQuote.author}`;
+
+                textEl.classList.remove('opacity-0');
+                textEl.classList.add('opacity-100');
+                authorEl.classList.remove('opacity-0');
+                authorEl.classList.add('opacity-100');
+            }, 1000);
+        }
+
+        function initColdReachoutForm() {
+            const form = document.getElementById('cold-reachout-form');
+            const successDiv = document.getElementById('reachout-success');
+            if (!form || !successDiv) return;
+
+            form.onsubmit = (e) => {
+                e.preventDefault();
+                const name = document.getElementById('reach-name').value;
+                const email = document.getElementById('reach-email').value;
+                const message = document.getElementById('reach-message').value;
+
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Sending...`;
+
+                setTimeout(() => {
+                    form.classList.add('hidden');
+                    successDiv.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `Send Message <i class="fa-solid fa-paper-plane"></i>`;
+                }, 1000);
+            };
+        }
+
         window.addEventListener('hashchange', router);
         window.addEventListener('DOMContentLoaded', () => {
             initMockDb();
@@ -2453,6 +2504,8 @@
             router();
             initFreeReading();
             initDonation();
+            initColdReachoutForm();
+            setInterval(cycleQuotes, 7000);
         });
 
 
@@ -2584,7 +2637,6 @@
         const recordedServices = [
             { id: "rec-single", name: "Single-Question Deep-Dive", duration: 10, price: 25, description: "Focused guidance targeting one specific query regarding love, career, or spiritual path.", icon: "fa-sparkles" },
             { id: "rec-timeline", name: "Past, Present, & Future Spread", duration: 15, price: 45, description: "An in-depth timeline spread examining recent shifts, present anchor, and emerging paths.", icon: "fa-timeline" },
-            { id: "rec-celestial", name: "Astrology & Tarot Celestial Spread", duration: 30, price: 75, description: "Premium reading aligning birth chart transits with a comprehensive 7-card Tarot spread.", icon: "fa-moon" },
             { id: "rec-custom", name: "Custom Recorded Spread", duration: 20, price: 60, description: "Submit your custom spread layout or multiple complex questions (up to 3) for a tailored response.", icon: "fa-wand-magic-sparkles" }
         ];
 

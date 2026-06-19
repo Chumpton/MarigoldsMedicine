@@ -17,7 +17,7 @@ app.use(express.static(PUBLIC_DIR));
 
 const DEFAULT_COPY = {
   "nav_brand": "Marigold's Medicine",
-  "hero_heading": "Medicine as it was <br>Meant to Be",
+  "hero_heading": "A Place to Be Seen",
   "hero_subheading": "Meet Marigold Merced, your intuitive guide. Discover clarity, alignment, and mystical insight through minimalist spreads and profound universal wisdom.",
   "hero_cta": "Connect with Marigold",
   "free_title": "Get a Free Instant Tarot Reading",

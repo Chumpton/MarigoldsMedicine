@@ -105,14 +105,6 @@
       "price": 120,
       "description": "A comprehensive twelve-month overview drawing one card per month to guide your journey ahead.",
       "icon": "fa-sun-plant-wilt"
-    },
-    {
-      "id": "celestial",
-      "name": "Celestial Analysis",
-      "duration": 60,
-      "price": 150,
-      "description": "A 60-minute progressed chart consultation aligning your spiritual timeline and planetary energies.",
-      "icon": "fa-star"
     }
   ],
   "shop": [
@@ -148,7 +140,7 @@
   ],
   "copy": {
     "nav_brand": "Marigold's Medicine",
-    "hero_heading": "Medicine as it was <br>Meant to Be",
+    "hero_heading": "A Place to Be Seen",
     "hero_subheading": "Meet Marigold Merced, your intuitive guide. Discover clarity, alignment, and mystical insight through minimalist spreads and profound universal wisdom.",
     "hero_cta": "Connect with Marigold",
     "free_title": "Get a Free Instant Tarot Reading",
